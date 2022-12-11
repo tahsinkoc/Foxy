@@ -11,6 +11,7 @@ import Footer from './Footer'
 function Home() {
     return (
         <div className='bg w-full'>
+            <title>Foxy</title>
             <Navbar />
             <div className='w-full relative'>
                 <div className='w-full justify-center items-center flex text-darker absolute bottom-12 z-10 invisible xl:visible'>

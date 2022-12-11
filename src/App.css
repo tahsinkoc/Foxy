@@ -25,3 +25,8 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
     background: rgb(0, 0, 0);
 }
+
+::-ms-reveal {
+    filter: invert(100%);
+    /* color: aliceblue; */
+}

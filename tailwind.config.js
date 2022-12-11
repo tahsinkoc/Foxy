@@ -12,6 +12,10 @@ module.exports = {
           '0%': { transform: 'translate(-100%,0)' },
           '100%': { transform: 'translate(0,0)' },
         },
+        wiggles: {
+          '0%': { left: '0' },
+          '100%': { left: '-100%' },
+        },
         fade: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' }
@@ -20,6 +24,7 @@ module.exports = {
       animation: {
         wiggle: 'wiggle .4s ease-in-out',
         fade: 'fade .4s ease-in-out',
+        wiggles: 'wiggle .4s ease-in-out',
       }
     },
     colors: {
