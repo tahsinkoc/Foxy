@@ -3,7 +3,7 @@ import React from 'react'
 function Warsaw() {
 
     function handleReq(par) {
-        fetch(`https://a989-46-196-200-1.eu.ngrok.io/${par}`)
+        fetch(`https://faf7-46-196-200-1.eu.ngrok.io/${par}`)
             .then(res => res.json())
             .then(resa => console.log(resa))
     }
