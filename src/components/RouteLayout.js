@@ -14,6 +14,7 @@ function RouteLayout() {
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='/login' element={<Login_Register />} />
+                <Route path='/warsaw' element={<Warsaw />} />
             </Routes>
         </Router>
     )
