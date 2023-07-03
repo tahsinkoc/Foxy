@@ -7,8 +7,46 @@ import Cart from './Cart'
 import InformationCarts from './InformationCarts'
 import Prices from './Prices'
 import Footer from './Footer'
+import { useState, useEffect } from 'react'
+
 
 function Home() {
+
+    const [deferredPrompt, setDeferredPrompt] = useState(null);
+
+    const handleButtonClick = () => {
+        // Hide the button
+        setDeferredPrompt(null);
+
+        // Show the prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the A2HS prompt');
+            } else {
+                console.log('User dismissed the A2HS prompt');
+            }
+        });
+    };
+
+    // Event listener for beforeinstallprompt event
+    const handleBeforeInstallPrompt = (e) => {
+        e.preventDefault();
+        setDeferredPrompt(e);
+    };
+
+    // Add the event listener when the component mounts
+    useEffect(() => {
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        };
+    }, []);
+
     return (
         <div className='bg w-full'>
             <title>Foxy</title>
@@ -27,7 +65,7 @@ function Home() {
                     The Foxy App simplifies the process of mastering difficult games, helping you improve at every step of your journey to the top.
                 </p>
                 <div className="flex flex-col md:flex-row">
-                    <button className='flex items-center rounded-md my-2 md:my-0 transition duration-150 border outline-0 border-darker text-darker py-3 text-[1.1rem] bg-gradient-to-r from-transparent to-transparent  px-6 hover:from-rr hover:to-t hover:text-white mx-2'>
+                    <button onClick={handleButtonClick} className='flex items-center rounded-md my-2 md:my-0 transition duration-150 border outline-0 border-darker text-darker py-3 text-[1.1rem] bg-gradient-to-r from-transparent to-transparent  px-6 hover:from-rr hover:to-t hover:text-white mx-2'>
                         <AiFillWindows size={35} />
                         &nbsp;
                         Download for windows
