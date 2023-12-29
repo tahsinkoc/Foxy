@@ -5,27 +5,65 @@ function Login_Register() {
 
     const [reg, setReg] = useState(false)
 
+    const [Register, setRegister] = useState({
+        NameSurname: '',
+        Username: '',
+        UsernameInGame: '',
+        RiotTag: '',
+        Server: '',
+        Mail: '',
+        Password: '',
+        PasswordConfirm: ''
+    })
+
+    const HandleChange = (e, a) => {
+        setRegister(current => ({
+            ...current,
+            [a]: e
+        }))
+    }
+
+    useEffect(() => {
+        if (Register.Password !== Register.PasswordConfirm) {
+
+        }
+    }, [Register])
+
     if (reg) {
         return (
             <>
                 <Navbar />
-                <div className="flex items-center justify-center h-screen w-full">
-                    <div className='w-[30rem] rounded shadow z-10'>
+                <div className="flex items-center justify-center h-screen w-full lg:my-0 mt-10">
+                    <div className='w-[30rem] rounded z-10'>
                         {/* <div className="w-11/12 py-2 text-[1.2rem] px-2 text-white bg-gradient-to-r from-rr to-t rounded text-center">
                         Login
                     </div> */}
                         <div className="w-fuull px-2">
                             <div className="w-full flex flex-col py-2">
-                                {/* <label htmlFor="" className='text-t mb-2'>Username</label> */}
-                                <input placeholder='Username' type="text" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                                <input onChange={(e) => HandleChange(e.target.value, 'NameSurname')} placeholder='Name & Surname' type="text" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
                             </div>
                             <div className="w-full flex flex-col py-2">
-                                {/* <label htmlFor="" className='text-t mb-2'>Username</label> */}
-                                <input placeholder='Password' type="password" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                                <input onChange={(e) => HandleChange(e.target.value, 'Username')} placeholder='Username' type="text" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                            </div>
+                            <div className="w-full flex flex-row py-2 justify-between">
+                                <input onChange={(e) => HandleChange(e.target.value, 'UsernameInGame')} placeholder='Username in Game' type="text" className='bg-transparent border-b w-[48%] border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                                <input onChange={(e) => HandleChange(e.target.value, 'RiotTag')} placeholder='#RiotTag' type="text" className='bg-transparent border-b w-[48%] border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
                             </div>
                             <div className="w-full flex flex-col py-2">
-                                {/* <label htmlFor="" className='text-t mb-2'>Username</label> */}
-                                <input placeholder='Password again' type="password" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                                <select onChange={(e) => HandleChange(e.target.value, 'Server')} name="" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-gray-100 placeholder:white  text-white' id="">
+                                    <option className='bg-slate-600 text-orange-500 hover:bg-slate-600' value="TR">TR</option>
+                                    <option className='bg-slate-600 text-orange-500 hover:bg-slate-600' value="EU">EU</option>
+                                    {/* text-[#9CA3AF] */}
+                                </select>
+                            </div>
+                            <div className="w-full flex flex-col py-2">
+                                <input onChange={(e) => HandleChange(e.target.value, 'Mail')} placeholder='Email' type="mail" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                            </div>
+                            <div className="w-full flex flex-col py-2">
+                                <input onChange={(e) => HandleChange(e.target.value, 'Password')} placeholder='Password' type="password" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
+                            </div>
+                            <div className="w-full flex flex-col py-2">
+                                <input onChange={(e) => HandleChange(e.target.value, 'PasswordConfirm')} placeholder='Password again' type="password" className='bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white' />
                             </div>
                             <div className="w-full flex flex-col py-2">
                                 <button className='w-full bg-gradient-to-r from-rr to-t rounded text-center text-white p-2'>
@@ -39,7 +77,6 @@ function Login_Register() {
                     </div>
                     <img src="/assets/irelia.jpg" className='h-full md:w-full md:h-auto fixed opacity-[.5] blur-lg' alt="irelia.jpg" />
                     <title>Login-Register</title>
-
                 </div>
             </>
         )

@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .text-input {
+    @apply bg-transparent border-b border-b-borderColor outline-none my-2 py-2 text-white placeholder:white;
+} */
