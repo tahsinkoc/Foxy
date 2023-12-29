@@ -50,7 +50,6 @@ function Home() {
     return (
         <div className='bg w-full'>
             <title>Foxy</title>
-            <Navbar />
             <div className='w-full relative'>
                 <div className='w-full justify-center items-center flex text-darker absolute bottom-12 z-10 invisible xl:visible'>
                     <AiOutlineArrowDown className='rounded-[60px] w-[50px] animate-bounce h-[50px] p-4 border border-darker' />
