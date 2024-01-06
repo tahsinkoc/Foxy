@@ -69,7 +69,7 @@ function Home() {
                         &nbsp;
                         Download for windows
                     </button>
-                    <button className='rounded-md my-2 md:my-0 transition duration-150 border border border-white text-white py-3 text-[1.1rem] px-6 hover:bg-white hover:text-bg mx-2'>
+                    <button className='rounded-md my-2 md:my-0 transition duration-150 border border-white text-white py-3 text-[1.1rem] px-6 hover:bg-white hover:text-bg mx-2'>
                         See how it works
                     </button>
                 </div>
